@@ -22,11 +22,9 @@ public class EFContext : DbContext
     }
 
     public DbSet<Customer> Customers { get; set; }
+    public DbSet<CustomerAddress> CustomerAddresses { get; set; }
+    public DbSet<Employee> Employees { get; set; }
+    public DbSet<Department> Departments { get; set; }
+    public DbSet<DbTypeTest> DbTypeTests { get; set; }
 }
-
-
-
-
-
-
 
