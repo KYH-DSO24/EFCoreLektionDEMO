@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 
 using System.Runtime;
 
@@ -10,7 +11,9 @@ public class EFContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer(connectionString);
+        optionsBuilder.UseSqlServer(connectionString)
+            //.LogTo(Console.WriteLine, new[] {RelationalEventId.CommandExecuted})    //Show SQL commands
+            ;
     }
 
     public DbSet<Product> Products { get; set; }
